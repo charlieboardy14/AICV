@@ -90,7 +90,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gray-100 p-8">
-      <h1 className="text-4xl font-bold text-center mb-8">AI CV Writer and Tailor</h1>
+      <h1 className="text-4xl font-bold text-center mb-8 text-black">AI CV Writer and Tailor</h1>
 
       <div className="flex justify-center mb-8">
         <button
@@ -121,7 +121,7 @@ export default function Home() {
                 <textarea
                   id="personalDetails"
                   rows={4}
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm text-black placeholder-gray-700"
                   value={personalDetails}
                   onChange={(e) => setPersonalDetails(e.target.value)}
                   placeholder="Name, Contact, Email, LinkedIn, etc."
@@ -132,7 +132,7 @@ export default function Home() {
                 <textarea
                   id="workExperience"
                   rows={6}
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm text-black placeholder-gray-700"
                   value={workExperience}
                   onChange={(e) => setWorkExperience(e.target.value)}
                   placeholder="Job Title, Company, Dates, Responsibilities, Achievements"
@@ -143,7 +143,7 @@ export default function Home() {
                 <textarea
                   id="education"
                   rows={4}
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm text-black placeholder-gray-700"
                   value={education}
                   onChange={(e) => setEducation(e.target.value)}
                   placeholder="Degree, University, Dates, Relevant Coursework"
@@ -154,7 +154,7 @@ export default function Home() {
                 <textarea
                   id="skills"
                   rows={4}
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm text-black placeholder-gray-700"
                   value={skills}
                   onChange={(e) => setSkills(e.target.value)}
                   placeholder="Programming Languages, Tools, Soft Skills, etc."
@@ -182,7 +182,7 @@ export default function Home() {
                   type="file"
                   id="cvFile"
                   accept=".docx"
-                  className="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+                  className="mt-1 block w-full text-sm text-black file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
                   onChange={(e) => setCvFile(e.target.files ? e.target.files[0] : null)}
                 />
               </div>
@@ -191,7 +191,7 @@ export default function Home() {
                 <textarea
                   id="jobDescription"
                   rows={10}
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm text-black placeholder-gray-700"
                   value={jobDescription}
                   onChange={(e) => setJobDescription(e.target.value)}
                   placeholder="Paste the job description here..."
