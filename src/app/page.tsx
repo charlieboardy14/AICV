@@ -114,7 +114,7 @@ export default function Home() {
       <div className="bg-white p-8 rounded-lg shadow-md">
         {activeTab === 'create' && (
           <div>
-            <h2 className="text-2xl font-semibold mb-4">Create Your CV</h2>
+            <h2 className="text-2xl font-semibold mb-4 text-black">Create Your CV</h2>
             <div className="space-y-4">
               <div>
                 <label htmlFor="personalDetails" className="block text-sm font-medium text-black">Personal Details</label>
@@ -174,7 +174,7 @@ export default function Home() {
 
         {activeTab === 'tailor' && (
           <div>
-            <h2 className="text-2xl font-semibold mb-4">Tailor Your CV</h2>
+            <h2 className="text-2xl font-semibold mb-4 text-black">Tailor Your CV</h2>
             <div className="space-y-4">
               <div>
                 <label htmlFor="cvFile" className="block text-sm font-medium text-black">Upload CV (.docx)</label>
