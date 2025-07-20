@@ -11,7 +11,10 @@ export async function POST(req: NextRequest) {
 
     const model = genAI.getGenerativeModel({ model: 'gemini-2.5-flash' });
 
-    const prompt = `Generate a complete and professional CV based on the following information. The output should be the final CV content, ready for use, with no comments, placeholders, or conversational text.
+    const prompt = `Generate a complete, detailed, and professional CV based on the following information. The output should be the final CV content, ready for use, with no comments, placeholders, or conversational text. Use the following formatting conventions:
+- Use a single '#' for main section titles (e.g., # Personal Details).
+- Use '##' for sub-section titles (e.g., ## Work Experience).
+- Use '-' for bullet points in lists.
 
 Personal Details: ${personalDetails}
 Work Experience: ${workExperience}

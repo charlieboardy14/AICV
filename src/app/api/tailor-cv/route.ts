@@ -34,7 +34,10 @@ export async function POST(req: NextRequest) {
     const model = genAI.getGenerativeModel({ model: 'gemini-2.5-flash' });
     console.log('Gemini model initialized.');
 
-    const prompt = `You are an AI CV tailoring assistant. Given the following CV content and job description, please tailor the CV to better match the job description. Focus on highlighting relevant skills and experiences, and rephrase sections to align with the job's requirements. The output should be the final tailored CV content, ready for use, with no comments, placeholders, or conversational text. Maintain a professional tone and the overall structure of a CV.
+    const prompt = `You are an AI CV tailoring assistant. Given the following CV content and job description, please tailor the CV to be more detailed and better match the job description. Focus on highlighting relevant skills and experiences, and rephrase sections to align with the job's requirements. The output should be the final tailored CV content, ready for use, with no comments, placeholders, or conversational text. Maintain a professional tone and the overall structure of a CV. Use the following formatting conventions:
+- Use a single '#' for main section titles (e.g., # Personal Details).
+- Use '##' for sub-section titles (e.g., ## Work Experience).
+- Use '-' for bullet points in lists.
 
 CV Content:
 ${htmlContent}
