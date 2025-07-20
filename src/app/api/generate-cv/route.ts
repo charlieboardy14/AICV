@@ -31,29 +31,31 @@ Skills: ${skills}`;
       const lines = text.split('\n');
 
       lines.forEach(line => {
-        if (line.startsWith('# ')) {
+        const trimmedLine = line.trim();
+        if (trimmedLine.startsWith('# ')) {
           // Main Heading
           paragraphs.push(new Paragraph({
-            children: [new TextRun({ text: line.substring(2), bold: true, size: 48 })],
+            children: [new TextRun({ text: trimmedLine.substring(2), bold: true, size: 48 })],
             spacing: { after: 240 },
           }));
-        } else if (line.startsWith('## ')) {
+        } else if (trimmedLine.startsWith('## ')) {
           // Sub-heading
           paragraphs.push(new Paragraph({
-            children: [new TextRun({ text: line.substring(3), bold: true, size: 36 })],
+            children: [new TextRun({ text: trimmedLine.substring(3), bold: true, size: 36 })],
             spacing: { after: 120 },
           }));
-        } else if (line.startsWith('- ') || line.startsWith('* ')) {
-          // List item
+        } else if (trimmedLine.match(/^[-*]\s/)) {
+          // List item (more robust check)
+          const content = trimmedLine.replace(/^[-*]\s*/, '').trim();
           paragraphs.push(new Paragraph({
-            children: [new TextRun({ text: line.substring(2).trim(), size: 24 })],
+            children: [new TextRun({ text: content, size: 24 })],
             bullet: { level: 0 },
             spacing: { after: 60 },
           }));
-        } else if (line.trim() !== '') {
+        } else if (trimmedLine !== '') {
           // Regular paragraph
           paragraphs.push(new Paragraph({
-            children: [new TextRun({ text: line.trim(), size: 24 })],
+            children: [new TextRun({ text: trimmedLine, size: 24 })],
             spacing: { after: 120 },
           }));
         }
