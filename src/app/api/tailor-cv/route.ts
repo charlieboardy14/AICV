@@ -52,19 +52,47 @@ Tailored CV:`;
     const tailoredCvContent = response.text();
     console.log('Tailored CV content received from Gemini.');
 
+    // Helper function to parse content and create DOCX paragraphs
+    const createDocxParagraphs = (text: string) => {
+      const paragraphs: Paragraph[] = [];
+      const lines = text.split('\n');
+
+      lines.forEach(line => {
+        if (line.startsWith('# ')) {
+          // Main Heading
+          paragraphs.push(new Paragraph({
+            children: [new TextRun({ text: line.substring(2), bold: true, size: 48 })],
+            spacing: { after: 240 },
+          }));
+        } else if (line.startsWith('## ')) {
+          // Sub-heading
+          paragraphs.push(new Paragraph({
+            children: [new TextRun({ text: line.substring(3), bold: true, size: 36 })],
+            spacing: { after: 120 },
+          }));
+        } else if (line.startsWith('- ') || line.startsWith('* ')) {
+          // List item
+          paragraphs.push(new Paragraph({
+            children: [new TextRun({ text: line.substring(2), size: 24 })],
+            bullet: { level: 0 },
+            spacing: { after: 60 },
+          }));
+        } else if (line.trim() !== '') {
+          // Regular paragraph
+          paragraphs.push(new Paragraph({
+            children: [new TextRun({ text: line.trim(), size: 24 })],
+            spacing: { after: 120 },
+          }));
+        }
+      });
+      return paragraphs;
+    };
+
+    const docxChildren = createDocxParagraphs(tailoredCvContent);
+
     const doc = new Document({
       sections: [{
-        children: [
-          new Paragraph({
-            children: [
-              new TextRun({
-                text: tailoredCvContent,
-                font: "Calibri",
-                size: 24,
-              }),
-            ],
-          }),
-        ],
+        children: docxChildren,
       }],
     });
     console.log('DOCX document created.');
