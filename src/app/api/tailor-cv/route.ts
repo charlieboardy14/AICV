@@ -88,6 +88,7 @@ Tailored CV:`;
             children: [new TextRun({ text: trimmedLine, size: 24, color: "000000", font: "Calibri" })],
             spacing: { after: 120 },
           }));
+        }
       });
       return paragraphs;
     };
