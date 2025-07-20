@@ -3,6 +3,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { GoogleGenerativeAI } from '@google/generative-ai';
 import { Document, Packer, Paragraph, TextRun } from 'docx';
 import mammoth from 'mammoth';
+import { Buffer } from 'buffer'; // Explicitly import Buffer
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY!); // Ensure GEMINI_API_KEY is set in your .env.local
 
@@ -23,9 +24,11 @@ export async function POST(req: NextRequest) {
 
     // Read the DOCX file content
     const arrayBuffer = await cvFile.arrayBuffer();
-    console.log('CV file converted to ArrayBuffer.');
+    console.log(`ArrayBuffer size: ${arrayBuffer.byteLength} bytes.`);
+    const nodeBuffer = Buffer.from(arrayBuffer); // Convert ArrayBuffer to Node.js Buffer
+    console.log('CV file converted to ArrayBuffer and then to Node.js Buffer.');
 
-    const { value: htmlContent } = await mammoth.extractRawText({ arrayBuffer: arrayBuffer });
+    const { value: htmlContent } = await mammoth.extractRawText({ buffer: nodeBuffer }); // Use 'buffer' option
     console.log('CV content extracted using mammoth.');
 
     const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
