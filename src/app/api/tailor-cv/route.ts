@@ -31,10 +31,10 @@ export async function POST(req: NextRequest) {
     const { value: htmlContent } = await mammoth.extractRawText({ buffer: nodeBuffer }); // Use 'buffer' option
     console.log('CV content extracted using mammoth.');
 
-    const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
+    const model = genAI.getGenerativeModel({ model: 'gemini-2.5-flash' });
     console.log('Gemini model initialized.');
 
-    const prompt = `You are an AI CV tailoring assistant. Given the following CV content and job description, please tailor the CV to better match the job description. Focus on highlighting relevant skills and experiences, and rephrase sections to align with the job's requirements. Maintain a professional tone and the overall structure of a CV.
+    const prompt = `You are an AI CV tailoring assistant. Given the following CV content and job description, please tailor the CV to better match the job description. Focus on highlighting relevant skills and experiences, and rephrase sections to align with the job's requirements. The output should be the final tailored CV content, ready for use, with no comments, placeholders, or conversational text. Maintain a professional tone and the overall structure of a CV.
 
 CV Content:
 ${htmlContent}
