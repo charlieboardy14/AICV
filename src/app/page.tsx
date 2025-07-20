@@ -117,7 +117,7 @@ export default function Home() {
             <h2 className="text-2xl font-semibold mb-4">Create Your CV</h2>
             <div className="space-y-4">
               <div>
-                <label htmlFor="personalDetails" className="block text-sm font-medium text-gray-700">Personal Details</label>
+                <label htmlFor="personalDetails" className="block text-sm font-medium text-black">Personal Details</label>
                 <textarea
                   id="personalDetails"
                   rows={4}
@@ -128,7 +128,7 @@ export default function Home() {
                 ></textarea>
               </div>
               <div>
-                <label htmlFor="workExperience" className="block text-sm font-medium text-gray-700">Work Experience</label>
+                <label htmlFor="workExperience" className="block text-sm font-medium text-black">Work Experience</label>
                 <textarea
                   id="workExperience"
                   rows={6}
@@ -139,7 +139,7 @@ export default function Home() {
                 ></textarea>
               </div>
               <div>
-                <label htmlFor="education" className="block text-sm font-medium text-gray-700">Education</label>
+                <label htmlFor="education" className="block text-sm font-medium text-black">Education</label>
                 <textarea
                   id="education"
                   rows={4}
@@ -150,7 +150,7 @@ export default function Home() {
                 ></textarea>
               </div>
               <div>
-                <label htmlFor="skills" className="block text-sm font-medium text-gray-700">Skills</label>
+                <label htmlFor="skills" className="block text-sm font-medium text-black">Skills</label>
                 <textarea
                   id="skills"
                   rows={4}
@@ -177,7 +177,7 @@ export default function Home() {
             <h2 className="text-2xl font-semibold mb-4">Tailor Your CV</h2>
             <div className="space-y-4">
               <div>
-                <label htmlFor="cvFile" className="block text-sm font-medium text-gray-700">Upload CV (.docx)</label>
+                <label htmlFor="cvFile" className="block text-sm font-medium text-black">Upload CV (.docx)</label>
                 <input
                   type="file"
                   id="cvFile"
@@ -187,7 +187,7 @@ export default function Home() {
                 />
               </div>
               <div>
-                <label htmlFor="jobDescription" className="block text-sm font-medium text-gray-700">Job Description</label>
+                <label htmlFor="jobDescription" className="block text-sm font-medium text-black">Job Description</label>
                 <textarea
                   id="jobDescription"
                   rows={10}
