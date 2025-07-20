@@ -44,8 +44,8 @@ export default function Home() {
       a.click();
       a.remove();
       window.URL.revokeObjectURL(url);
-    } catch (error: any) {
-      setCreationError(error.message);
+    } catch (error: unknown) {
+      setCreationError(error instanceof Error ? error.message : String(error));
     } finally {
       setCreationLoading(false);
     }
@@ -81,8 +81,8 @@ export default function Home() {
       a.click();
       a.remove();
       window.URL.revokeObjectURL(url);
-    } catch (error: any) {
-      setTailoringError(error.message);
+    } catch (error: unknown) {
+      setTailoringError(error instanceof Error ? error.message : String(error));
     } finally {
       setTailoringLoading(false);
     }
