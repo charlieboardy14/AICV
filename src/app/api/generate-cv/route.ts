@@ -46,7 +46,7 @@ Skills: ${skills}`;
         } else if (line.startsWith('- ') || line.startsWith('* ')) {
           // List item
           paragraphs.push(new Paragraph({
-            children: [new TextRun({ text: line.substring(2), size: 24 })],
+            children: [new TextRun({ text: line.substring(2).trim(), size: 24 })],
             bullet: { level: 0 },
             spacing: { after: 60 },
           }));
