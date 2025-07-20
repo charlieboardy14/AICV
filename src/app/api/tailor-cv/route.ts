@@ -23,10 +23,9 @@ export async function POST(req: NextRequest) {
 
     // Read the DOCX file content
     const arrayBuffer = await cvFile.arrayBuffer();
-    const nodeBuffer = Buffer.from(arrayBuffer); // Convert ArrayBuffer to Node.js Buffer
-    console.log('CV file converted to ArrayBuffer and then to Buffer.');
+    console.log('CV file converted to ArrayBuffer.');
 
-    const { value: htmlContent } = await mammoth.extractRawText({ arrayBuffer: nodeBuffer });
+    const { value: htmlContent } = await mammoth.extractRawText({ arrayBuffer: arrayBuffer });
     console.log('CV content extracted using mammoth.');
 
     const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
